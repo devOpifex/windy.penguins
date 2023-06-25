@@ -17,7 +17,7 @@ tab <- function(..., class = "", .value) {
 
 nav <- function() {
   div(
-    class = "bg-cyan-600 text-white h-10 px-4 py-2 rounded-r-lg shadow w-40 flex-none min-h-screen",
+    class = "bg-cyan-600 text-white h-full px-4 py-2 rounded-r-lg shadow w-40 flex-none min-h-screen",
     div(
       class = "mb-6",
       h2("{windy}", class = "text-2xl px-2 px-2"),
@@ -42,6 +42,13 @@ nav <- function() {
           id = "islands",
           class = "bg-white text-slate-700 px-2 py-1 rounded w-full"
         )
+      )
+    ),
+    tags$a(
+      href = "opifex.org",
+      target = "_blank",
+      tags$img(
+        src = "https://opifex.org/assets/img/opifex-logo.png"
       )
     )
   )
