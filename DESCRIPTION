@@ -18,6 +18,7 @@ RoxygenNote: 7.2.3
 Imports: 
     g2r,
     htmltools,
+    rlang,
     shiny
 Suggests:
     dplyr,

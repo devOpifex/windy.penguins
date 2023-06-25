@@ -5,6 +5,8 @@
 #' @param input,output Environments.
 #' @param session Shiny session.
 #' 
+#' @importFrom rlang .data
+#' 
 #' @import shiny
 #' @keywords internal
 server <- \(input, output, session){

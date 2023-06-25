@@ -15,11 +15,18 @@ ui <- \(req) {
       tab(
         .value = "home",
         div(
-          class = "bg-white shadow h-56 text-center m-2 rounded p-4",
+          class = "bg-white shadow text-center m-2 rounded p-4",
           h1("Hello, Tailwind!", class = "text-cyan-600 text-6xl mt-8 mb-4"),
           p(
             class = "text-slate-800",
-            "Using tailwind with shiny using the {windy} package, an example."
+            "Using tailwind with shiny with the {windy} package, an example."
+          ),
+          div(
+            class = "flex w-full justify-center items-center",
+            tags$img(
+              class = "max-h-96",
+              src = "https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png"
+            )
           )
         )
       ),

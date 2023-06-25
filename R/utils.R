@@ -73,3 +73,28 @@ gauge_continuous <- function(g, ...) {
 gauge_discrete <- function(g, ...) {
   gauge_color(g, "#006ba6", "#ffbc42", "#8f2d56")
 }
+
+varsInput <- function(id, label, default = "") {
+  opts <- names(palmerpenguins::penguins)[grepl("_", names(palmerpenguins::penguins))] |>
+    lapply(\(n) {
+      name <- gsub("_", " ", n) |>
+        tools::toTitleCase()
+
+
+      opt <- tags$option(value = n, name)
+
+      if(n == default)
+        opt <- htmltools::tagAppendAttributes(opt, selected = NA)
+
+      return(opt)
+    })
+
+  tagList(
+    tags$label(label, class = "text-sm text-white"),
+    tags$select(
+      id = id,
+      class = "bg-white text-slate-700 px-2 py-1 rounded w-full",
+      opts
+    )
+  )
+}

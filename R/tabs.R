@@ -26,7 +26,7 @@ nav <- function() {
     nav_entry("Visualisation"),
     div(
       id = "inputs",
-      class = "hidden",
+      class = "hidden mt-4",
       div(
         class = "mb-2",
         tags$label("Species", class = "text-sm text-white"),
