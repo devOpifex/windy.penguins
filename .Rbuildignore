@@ -1,0 +1,8 @@
+^node_modules$
+^tailwind\.config\.js$
+^package\.json$
+^package-lock\.json$
+^app\.R$
+^LICENSE\.md$
+^makefile$
+^data-raw$
