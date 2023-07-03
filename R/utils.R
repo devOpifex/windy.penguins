@@ -60,7 +60,7 @@ page <- function(...) {
   tags$html(
     dep(),
     tags$body(
-      class = "bg-slate-50 flex",
+      class = "bg-slate-50 flex min-h-full",
       ...
     )
   )
@@ -74,7 +74,7 @@ gauge_discrete <- function(g, ...) {
   gauge_color(g, "#006ba6", "#ffbc42", "#8f2d56")
 }
 
-varsInput <- function(id, label, default = "") {
+varsInput <- function(id, label, default = "", class = "") {
   opts <- names(palmerpenguins::penguins)[grepl("_", names(palmerpenguins::penguins))] |>
     lapply(\(n) {
       name <- gsub("_", " ", n) |>
@@ -93,7 +93,7 @@ varsInput <- function(id, label, default = "") {
     tags$label(label, class = "text-sm text-white"),
     tags$select(
       id = id,
-      class = "bg-white text-slate-700 px-2 py-1 rounded w-full",
+      class = sprintf("bg-white text-slate-700 px-2 py-1 rounded w-full %s", class),
       opts
     )
   )

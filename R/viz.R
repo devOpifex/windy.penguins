@@ -15,7 +15,7 @@ vizUI <- \(id){
     div(
       class = "bg-white rounded shadow-sm p-4 m-2",
       h2("Species body mass vs. Flipper Length", class = "text-2xl text-slate-700"),
-      varsInput(ns("x"), "X axis", default = "flipper_length_mm"),
+      varsInput(ns("x"), "X axis", default = "flipper_length_mm", class = "border border-gray-400"),
       g2Output(ns("scatter"))
     ),
     h2("Body mass distribution", class = "text-2xl text-slate-700 pl-4"),
