@@ -58,22 +58,22 @@ viz_server <- \(id, penguins){
       })
 
       output$scatter <- renderG2({
-        g2(penguins(), asp(!!(rlang::sym(input$x)), !!(rlang::sym(input$y)), color = "species")) |>
-          fig_point(asp(size = 3)) |>
-          planes(~.data$species, type = "tree") |>
+        g2(penguins(), asp(!!(rlang::sym(input$x)), !!(rlang::sym(input$y)), color = "species")) %>%
+          fig_point(asp(size = 3)) %>%
+          planes(~.data$species, type = "tree") %>%
           gauge_discrete()
       })
 
       output$hist <- renderG2({
-        g2(penguins(), asp(!!(rlang::sym(input$y)), color = "species")) |>
-          fig_histogram(adjust("stack"), bin_width = 100) |>
+        g2(penguins(), asp(!!(rlang::sym(input$y)), color = "species")) %>%
+          fig_histogram(adjust("stack"), bin_width = 100) %>%
           gauge_discrete()
       })
 
       output$box <- renderG2({
-        g2(penguins(), asp("species", !!(rlang::sym(input$y)), color = "species")) |>
-          fig_boxplot() |>
-          fig_point(adjust("jitter"), asp("species", "body_mass_g", size = 1)) |>
+        g2(penguins(), asp("species", !!(rlang::sym(input$y)), color = "species")) %>%
+          fig_boxplot() %>%
+          fig_point(adjust("jitter"), asp("species", "body_mass_g", size = 1)) %>%
           gauge_discrete()
       })
   })

@@ -31,13 +31,12 @@ select_choices <- \(
   values <- unname(choices)
   labels[labels == ""] <- values[labels == ""]
 
-  1:length(values) |> 
-    lapply(\(i) {
-      tags$option(
-        value = values[i],
-        labels[i]
-      )
-    })
+  lapply(1:length(values), \(i) {
+    tags$option(
+      value = values[i],
+      labels[i]
+    )
+  })
 }
 
 #' CSS Dependency
@@ -78,19 +77,17 @@ gauge_discrete <- function(g, ...) {
 }
 
 varsInput <- function(id, label, default = "", class = "") {
-  opts <- names(palmerpenguins::penguins)[grepl("_", names(palmerpenguins::penguins))] |>
-    lapply(\(n) {
-      name <- gsub("_", " ", n) |>
-        tools::toTitleCase()
+  opts <- lapply(names(palmerpenguins::penguins)[grepl("_", names(palmerpenguins::penguins))], \(n) {
+    name <- gsub("_", " ", n)
+    name <- tools::toTitleCase(name)
 
+    opt <- tags$option(value = n, name)
 
-      opt <- tags$option(value = n, name)
+    if(n == default)
+      opt <- htmltools::tagAppendAttributes(opt, selected = NA)
 
-      if(n == default)
-        opt <- htmltools::tagAppendAttributes(opt, selected = NA)
-
-      return(opt)
-    })
+    return(opt)
+  })
 
   tagList(
     tags$label(label, class = "text-sm text-white"),

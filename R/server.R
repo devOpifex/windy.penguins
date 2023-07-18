@@ -28,12 +28,10 @@ server <- \(input, output, session){
     dat <- palmerpenguins::penguins
 
     if(input$species != "all")
-      dat <- dat |>
-        dplyr::filter(.data$species == input$species)
+      dat <- dplyr::filter(dat, .data$species == input$species)
 
     if(input$islands != "all")
-      dat <- dat |>
-        dplyr::filter(.data$island == input$islands)
+      dat <- dplyr::filter(dat, .data$island == input$islands)
 
     return(dat)
   })

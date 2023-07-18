@@ -18,6 +18,7 @@ RoxygenNote: 7.2.3
 Imports: 
     g2r,
     htmltools,
+    magrittr,
     rlang,
     shiny
 Suggests:
@@ -27,4 +28,3 @@ Suggests:
 Remotes: 
     devOpifex/g2r,
     devOpifex/alter
-

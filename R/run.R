@@ -7,6 +7,6 @@
 #' @import shiny
 #' 
 #' @export 
-run <- \(...) {
+run <- function(...) {
   shiny::shinyApp(ui, server, ...)
 }
