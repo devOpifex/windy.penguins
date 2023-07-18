@@ -1,4 +1,4 @@
-.onLoad <- \(...){
+.onLoad <- function(...){
   if(!file.exists(pkg_file("app/assets")))
     return()
 

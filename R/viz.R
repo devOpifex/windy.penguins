@@ -5,7 +5,7 @@
 #' @import g2r
 #' 
 #' @keywords internal
-vizUI <- \(id){
+vizUI <- function(id){
 	ns <- NS(id)
 
   div(
@@ -38,10 +38,10 @@ vizUI <- \(id){
 #' @param id Unique id for module instance.
 #' 
 #' @keywords internal
-viz_server <- \(id, penguins){
+viz_server <- function(id, penguins){
 	moduleServer(
 		id,
-		\(
+		function(
 			input, 
 			output, 
 			session

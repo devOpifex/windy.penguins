@@ -8,7 +8,7 @@
 #' @importFrom htmltools htmlTemplate
 #' 
 #' @keywords internal
-ui <- \(req) {
+ui <- function(req) {
   page(
     nav(),
     tabs(

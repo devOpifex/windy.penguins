@@ -9,7 +9,7 @@
 #' 
 #' @import shiny
 #' @keywords internal
-server <- \(input, output, session){
+server <- function(input, output, session){
   # update initial inputs
   observe({
     session$sendCustomMessage(

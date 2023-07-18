@@ -5,7 +5,7 @@
 #' @param ... Passed to [system.file()].
 #' 
 #' @keywords internal
-pkg_file <- \(...){
+pkg_file <- function(...){
   system.file(..., package = "windy.example")
 }
 
@@ -18,7 +18,7 @@ pkg_file <- \(...){
 #' @importFrom htmltools tags
 #' 
 #' @keywords internal
-select_choices <- \(
+select_choices <- function(
   choices
 ){
   if(missing(choices))
@@ -31,7 +31,7 @@ select_choices <- \(
   values <- unname(choices)
   labels[labels == ""] <- values[labels == ""]
 
-  lapply(1:length(values), \(i) {
+  lapply(1:length(values), function(i) {
     tags$option(
       value = values[i],
       labels[i]
@@ -77,7 +77,7 @@ gauge_discrete <- function(g, ...) {
 }
 
 varsInput <- function(id, label, default = "", class = "") {
-  opts <- lapply(names(palmerpenguins::penguins)[grepl("_", names(palmerpenguins::penguins))], \(n) {
+  opts <- lapply(names(palmerpenguins::penguins)[grepl("_", names(palmerpenguins::penguins))], function(n) {
     name <- gsub("_", " ", n)
     name <- tools::toTitleCase(name)
 
