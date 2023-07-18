@@ -60,8 +60,11 @@ page <- function(...) {
   tags$html(
     dep(),
     tags$body(
-      class = "bg-slate-50 flex min-h-full",
-      ...
+      class = "bg-slate-50 min-h-full",
+      div(
+        class = "md:grid md:grid-cols-12",
+        ...
+      )
     )
   )
 }

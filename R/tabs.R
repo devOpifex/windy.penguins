@@ -1,6 +1,6 @@
 tabs <- function(...){
   div(
-    class = "tabs p-2 flex-1 max-h-screen overflow-y-auto",
+    class = "tabs p-2 md:col-span-10 md:max-h-screen overflow-y-auto",
     ...
   )
 }
@@ -17,7 +17,7 @@ tab <- function(..., class = "", .value) {
 
 nav <- function() {
   div(
-    class = "bg-cyan-600 text-white h-full px-4 py-2 rounded-r-lg shadow w-40 flex-none min-h-screen",
+    class = "bg-cyan-600 text-white md:h-full px-4 py-2 rounded-r-lg shadow w-100 md:col-span-2 md:min-h-screen",
     div(
       class = "mb-6",
       h2("{windy}", class = "text-2xl px-2 px-2"),
@@ -45,9 +45,10 @@ nav <- function() {
       )
     ),
     tags$a(
-      href = "opifex.org",
+      href = "https://opifex.org",
       target = "_blank",
       tags$img(
+        class = "max-w-fit w-20 md:w-100",
         src = "https://opifex.org/assets/img/opifex-logo.png"
       )
     )
