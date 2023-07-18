@@ -14,11 +14,11 @@ vizUI <- \(id){
     varsInput(ns("y"), "Y axis", "body_mass_g"),
     div(
       class = "bg-white rounded shadow-sm p-4 m-2",
-      h2("Species body mass vs. Flipper Length", class = "text-2xl text-slate-700"),
+      uiOutput(ns("title")),
       varsInput(ns("x"), "X axis", default = "flipper_length_mm", class = "border border-gray-400"),
       g2Output(ns("scatter"))
     ),
-    h2("Body mass distribution", class = "text-2xl text-slate-700 pl-4"),
+    h2("Distribution", class = "text-2xl text-slate-700 pl-4"),
     div(
       class = "grid grid-cols-2",
       div(
@@ -47,6 +47,15 @@ viz_server <- \(id, penguins){
 			session
     ){
       ns <- session$ns
+
+      output$title <- renderUI({
+        title <- sprintf(
+          "Species %s vs. %s",
+          gsub("_", " ", input$x),
+          gsub("_", " ", input$y)
+        )
+        h2(title, class = "text-2xl text-slate-700")
+      })
 
       output$scatter <- renderG2({
         g2(penguins(), asp(!!(rlang::sym(input$x)), !!(rlang::sym(input$y)), color = "species")) |>

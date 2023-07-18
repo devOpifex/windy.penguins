@@ -1,6 +1,6 @@
 tabs <- function(...){
   div(
-    class = "tabs p-2 flex-1",
+    class = "tabs p-2 flex-1 max-h-screen overflow-y-auto",
     ...
   )
 }
